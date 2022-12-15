@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+  "use strict";
+
+  let a = Number(prompt('Введите число a '));
+  let b = Number(prompt('Введите число b '));
+  let operation = prompt("Введите число '+', '-','*','/'")
+
+  console.log(mathOperation(a,b,operation))
+
+  function mathOperation(val1, val2, operation) {
+    if (operation === '+') {
+      return sumDigits(val1,val2)
+    } else if (operation === '-') {
+      return diffDigits(val1,val2)
+    } else if (operation === '*') {
+      return multiplDigits(val1,val2)
+    } else if (operation === '/') {
+      return divisDigits(val1,val2)
+    }  else {
+      return NaN
+
+      }
+
+    }
+  
+
+  function sumDigits(val1,val2) { // нахождение суммы двух чисел
+    console.log(val1 + val2)
+  }
+
+  function diffDigits(val1,val2) {  // нахождение разности двух чисел
+    if (val1 > val2) {
+    console.log(val1 - val2)
+    } else if  (val1 < val2) {
+    console.log(val2 - val1)
+    } else if  (val1 === val2) {
+    console.log(0)
+    }
+  }
+
+  function multiplDigits(val1,val2) {  // нахождение умножения двух чисел
+    console.log(val1 * val2)
+  }
+
+  function divisDigits(val1,val2) {   // нахождение деления двух чисел
+    console.log(val1 / val2)
+  }
+
+  
+</script>
+</body>
+</html>
