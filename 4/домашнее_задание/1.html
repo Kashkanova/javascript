@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
+Необходимо создать функцию-конструктор/класс для продукта.
+Названия: `ProductES5` для es5 стиля, `ProductES6` для es6 стиля.
+При создании объекта от функции-конструктора/класса необходимо передавать имя
+и цену товара, эта информация должна быть сохранена в объекте.
+Также у объекта должна быть возможность выполнить метод `make25Discount`, данный
+метод должен уменьшать стоимость продукта на 25%.
+Необходимо продемонстрировать работу с объектом (в свободной форме).
+-->
+<script>
+  "use strict";
+
+// ES5 у метода в качестве аргумента значение скидки.
+
+  function ProductES5(name,price) {
+   this.name = name;
+   this.internPrice = price;
+   this.price = this.internPrice;
+  }
+  ProductES5.prototype.makeDiscount = function (disc) {
+    if (Number.isInteger(disc) && disc >=0 && disc <=100) {
+      this.price = this.internPrice * (100 - disc) / 100;
+    
+    } else {
+      console.log(`discount is unncorrect ${disc}`)
+    }
+    
+   
+  }
+
+  const prodes5_1 = new ProductES5('milk', 98)
+  const prodes5_2 = new ProductES5('butter', 156)
+
+  console.log(prodes5_1);
+  console.log(prodes5_2);
+
+  prodes5_1.makeDiscount(25);
+  prodes5_2.makeDiscount(125);
+
+// ES6
+
+class ProductES6 {
+  constructor(name,price) {
+    this.name = name;
+    this.internPrice = price;
+    this.price = this.internPrice;
+  }
+  
+
+  makeDiscount(disc) {
+    if (Number.isInteger(disc) && disc >=0 && disc <=100) {
+      this.price = this.internPrice * (100 - disc) / 100;
+    
+    } else {
+      console.log(`discount is unncorrect ${disc}`)
+    }
+  }
+  }
+  const prodes6_1 = new ProductES6('coffee', 450)
+  const prodes6_2 = new ProductES6('juice', 257)
+
+  console.log(prodes6_1);
+  console.log(prodes6_2);
+
+  prodes6_1.makeDiscount(5);
+  prodes6_2.makeDiscount(10);
+  
+</script>
+</body>
+</html>
